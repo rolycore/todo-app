@@ -1,5 +1,8 @@
+// eslint-disable-next-line
 <template>
+  
     <div>
+      
       <input v-model="newTodo" @keyup.enter="addTodo" placeholder="Add a new todo" />
       <button @click="addTodo">Add</button>
     </div>

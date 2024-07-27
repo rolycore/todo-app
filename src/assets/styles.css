@@ -1,24 +1,32 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   }
   
   #app {
     width: 100%;
-    max-width: 600px; /* Ancho máximo para la aplicación */
-    margin: 50px auto; /* Centrar vertical y horizontalmente */
+    max-width: 800px;
+    margin: 50px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
   }
   
   /* Estilos adicionales para hacer la aplicación responsive */
   @media (max-width: 768px) {
     #app {
-      max-width: 90%; /* Reducir el ancho máximo para pantallas más pequeñas */
-      margin: 20px auto; /* Ajustar el margen para una mejor visualización en pantallas pequeñas */
+   /* Reducir el ancho máximo para pantallas más pequeñas */
+       /* Ajustar el margen para una mejor visualización en pantallas pequeñas */
+      margin: 20px auto;
+      padding: 10px;
     }
   }
   

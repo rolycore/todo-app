@@ -9,14 +9,12 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import Header from "./components/Header.vue";
-import AddTodo from "./components/AddTodo.vue";
 import TodoList from "./components/TodoList.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    AddTodo,
     TodoList,
   },
   computed: {

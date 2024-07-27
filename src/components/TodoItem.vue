@@ -1,29 +1,35 @@
 <template>
-    <div>
-      <input type="checkbox" v-model="todo.completed" @change="toggleComplete" />
-      <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
-      <button @click="$emit('remove-todo', todo)">Remove</button>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      todo: {
-        type: Object,
-        required: true
-      }
+  <div>
+    <input type="checkbox" 
+      :checked="todo.completed" 
+      @change="toggleComplete" />
+    <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
+    <button @click="deleteTodo">Remove</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    todo: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    toggleComplete() {
+      // Emitir un evento con el cambio de estado del todo
+      this.$emit('update-todo', { ...this.todo, completed: !this.todo.completed });
     },
-    methods: {
-      toggleComplete() {
-        this.$emit('update-todo', { ...this.todo, completed: !this.todo.completed })
-      }
+    deleteTodo() {
+      // Emitir un evento para indicar que se debe eliminar el todo
+      this.$emit('remove-todo', this.todo);
     }
   }
-  </script>
-  
-  <style scoped>
-  
+}
+</script>
+
+<style scoped>
 div {
   display: flex;
   justify-content: space-between;
@@ -44,11 +50,5 @@ button {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 50%;
-}
-/* Estilos opcionales para hacer la lista más responsive */
-@media (max-width: 768px) {
-  .checkbox{
-    width: 90%; /* Reducir el ancho en pantallas más pequeñas */
-  }
 }
 </style>
